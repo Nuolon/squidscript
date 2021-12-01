@@ -45,7 +45,7 @@ start() {
 #Function to install squid package
 install_squid() {
 roll "Started the installation of squid, please sit tight."
-yum install squid* 2>&1 | tee ${DATA_DIR}/${LOGFILE}
+yum -y install squid* 2>&1 | tee ${DATA_DIR}/${LOGFILE}
 roll "Installation finished, moving on..."
 echo -e "${LPURPLE}================================================================${NC}"
 }
