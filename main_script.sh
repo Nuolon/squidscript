@@ -45,7 +45,7 @@ start() {
 #Function to install squid package
 install_squid() {
 roll "Started the installation of squid, please sit tight."
-yum install squid* 2>&1 ${DATA_DIR}/${LOGFILE}
+yum install squid* 2>&1 | tee ${DATA_DIR}/${LOGFILE}
 roll "Installation finished, moving on..."
 echo -e "${LPURPLE}================================================================${NC}"
 }
@@ -53,8 +53,8 @@ echo -e "${LPURPLE}=============================================================
 #Function to start squid after install and add to startup
 start_squid() {
 roll "Starting squid..."
-systemctl start squid 2>&1 ${DATA_DIR}/${LOGFILE}
-systemctl enable squid 2>&1 ${DATA_DIR}/${LOGFILE}
+systemctl start squid 2>&1 | tee ${DATA_DIR}/${LOGFILE}
+systemctl enable squid 2>&1 | tee ${DATA_DIR}/${LOGFILE}
 roll "Squid started and enabled on start-up"
 echo -e "${LPURPLE}================================================================${NC}"
 }
@@ -62,7 +62,7 @@ echo -e "${LPURPLE}=============================================================
 #function to restart squid
 restart_squid() {
 roll "Restarting squid..."
-systemctl restart squid 2>&1 ${DATA_DIR}/${LOGFILE}
+systemctl restart squid 2>&1 | tee ${DATA_DIR}/${LOGFILE}
 roll "Squid restarted"
 echo -e "${LPURPLE}================================================================${NC}"
 }
@@ -76,7 +76,7 @@ echo 'acl forbiddensites url_regex "/etc/squid/forbiddensites"'
 echo 'http_access deny forbiddensites' >> /etc/squid/squid.conf
 echo '.facebook.com' >> /etc/squid/forbiddensites
 firewall-cmd --permanent --add-port=3128/tcp 2>&1
-firewall-cmd --reload 2>&1 ${DATA_DIR}/${LOGFILE}
+firewall-cmd --reload 2>&1 |tee ${DATA_DIR}/${LOGFILE}
 roll "Done, basic acl's made and added a forbidden list."
 echo -e "${LPURPLE}================================================================${NC}"
 }
@@ -90,4 +90,3 @@ install_squid
 start_squid
 conf_squid
 restart_squid
-
