@@ -70,9 +70,9 @@ echo -e "${LPURPLE}=============================================================
 #Function to change the configuration file  of squid.
 conf_squid() {
 roll "Starting to configure squid..."
-echo 'http_access allow all' >> /etc/squid/squid.conf
-echo 'acl forbiddensites url_regex "/etc/squid/forbiddensites"'
-echo 'http_access deny forbiddensites' >> /etc/squid/squid.conf
+sed -i '16i http_access allow all' >> /etc/squid/squid.conf
+sed -i '53i acl forbiddensites url_regex "/etc/squid/forbiddensites"'
+sed -i '54i http_access deny forbiddensites' >> /etc/squid/squid.conf
 echo '.facebook.com' >> /etc/squid/forbiddensites
 firewall-cmd --permanent --add-port=3128/tcp 2>&1
 firewall-cmd --reload >> ${DATA_DIR}/${LOGFILE}
