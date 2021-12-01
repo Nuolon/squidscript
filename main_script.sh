@@ -45,7 +45,7 @@ start() {
 #Function to install squid package
 install_squid() {
 roll "Started the installation of squid, please sit tight."
-echo -e "${BLINKRED}yum install squid* 2>&1 ${DATA_DIR}/${LOGFILE}${NC}${YEL}"
+echo -e "${RED}yum install squid* 2>&1 ${DATA_DIR}/${LOGFILE}${NC}${YEL}"
 roll "Installation finished, moving on..."
 echo -e "${LPURPLE}================================================================${NC}"
 }
@@ -70,8 +70,8 @@ echo -e "${LPURPLE}=============================================================
 #Function to change the configuration file  of squid.
 conf_squid() {
 roll "Starting to configure squid..."
-echo -e "${RED}echo 'acl localnet src [IP address van alle hosts hun netwerken]' >> /etc/squid/squid.conf ${NC}${YEL}"
-echo -e "${RED}echo 'http_access allow localnet' >> /etc/squid/squid.conf ${NC}${YEL}"
+echo -e "${RED}echo 'acl all src 0.0.0.0/0' >> /etc/squid/squid.conf ${NC}${YEL}"
+echo -e "${RED}echo 'http_access allow all' >> /etc/squid/squid.conf ${NC}${YEL}"
 echo -e "${RED}echo 'acl forbiddensites url_regex "/etc/squid/forbiddensites"' ${NC}${YEL}"
 echo -e "${RED}echo 'http_access deny forbiddensites' >> /etc/squid/squid.conf ${NC}${YEL}"
 echo -e "${RED}echo '.facebook.com' >> /etc/squid/forbiddensites  ${NC}${YEL}"
