@@ -70,7 +70,6 @@ echo -e "${LPURPLE}=============================================================
 #Function to change the configuration file  of squid.
 conf_squid() {
 roll "Starting to configure squid..."
-echo 'acl all src 0.0.0.0/0' >> /etc/squid/squid.conf
 echo 'http_access allow all' >> /etc/squid/squid.conf
 echo 'acl forbiddensites url_regex "/etc/squid/forbiddensites"'
 echo 'http_access deny forbiddensites' >> /etc/squid/squid.conf
