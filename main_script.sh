@@ -42,6 +42,12 @@ start() {
 		cd "${DATA_DIR}"
 }
 
+#Function to change hostname
+change_hostname() {
+hostnamectl set-hostname Squid-proxy-server
+}
+
+
 #Function to install squid package
 install_squid() {
 roll "Started the installation of squid, please sit tight."
