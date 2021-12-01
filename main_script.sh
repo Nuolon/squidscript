@@ -65,6 +65,7 @@ roll "Restarting squid..."
 systemctl restart squid >> ${LOGFILE}
 roll "Squid restarted"
 echo -e "${LPURPLE}================================================================${YEL}"
+systemctl status squid.service
 }
 
 #Function to change the configuration file  of squid.
