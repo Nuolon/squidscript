@@ -33,7 +33,7 @@ roll() {
 
 #Function to declare an initial directory for environment and potentially logging (might add later)
 start() {
-echo -e "${BLINKPURP}###${NC} ${RED}Welcome to${NC} ${LPURPLE}Nick's${NC} ${RED}httpd/apache webserver roll-out script${NC}${BLINKPURP} ###${NC}"
+echo -e "${BLINKPURP}###${NC} ${RED}Welcome to${NC} ${LPURPLE}Nick's${NC} ${RED}Squid Proxy roll-out script${NC}${BLINKPURP} ###${NC}"
 echo -e "${CYAN}Please make sure you run this script as${NC}${RED} privileged user${NC}${CYAN}, are you?${NC}${YEL} [Y/N] ${NC}"
 read -p "Input: " -n 1 -r
 echo -e "${YEL}"
