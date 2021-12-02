@@ -87,7 +87,7 @@ systemctl status squid.service
 conf_squid() {
 roll "Starting to configure squid..."
 sed -i '8i acl forbidden_domains dstdomain "/etc/squid/forbidden.acl"' /etc/squid/squid.conf
-sed -i '9i http_access deny forbidden_domains' /etc/squid/forbidden.acl
+sed -i '9i http_access deny forbidden_domains' /etc/squid/squid.conf
 touch /etc/squid/forbidden.acl
 echo ".facebook.com" >> /etc/squid/forbidden.acl
 echo ".app.facebook.com" >> /etc/squid/forbidden.acl
