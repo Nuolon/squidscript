@@ -39,6 +39,7 @@ read -p "Input: " -n 1 -r
 echo -e "${YEL}"
 if [[ $REPLY =~ ^[Nn]$  ]]
 then
+	echo -e  "${RED}User acknowledged webpage failure; stopping...${NC}"
 	exit 1
 fi
 	#if [[ -d "$DATA_DIR" ]]; then
